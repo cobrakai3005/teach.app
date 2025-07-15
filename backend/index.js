@@ -72,6 +72,13 @@ app.use("/api/v1/tasks", taskRoutes);
 app.use("/api/v1/boards", boardRoutes);
 app.use("/api/v1/auth", userRoutes);
 
+app.get("/", (req, res) => {
+  return res.send({
+    activeStatus: true,
+    error: false,
+  });
+});
+
 app.listen(port, async () => {
   await connectToDatabase();
   console.log(`Server is running on port ${port} http://localhost:${port}`);
