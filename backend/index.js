@@ -15,7 +15,7 @@ import User from "./models/user.model.js";
 const app = express();
 // app.use(cors());
 app.use(express.json());
-
+app.use(cors());
 //Setup session
 
 app.use(
