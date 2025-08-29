@@ -30,7 +30,7 @@ export async function signUp(req, res) {
   } catch (error) {
     return res.status(500).json({
       success: false,
-      message: "Somthing Went wrong in REgistering User",
+      message: error.message,
     });
   }
 }
@@ -64,7 +64,7 @@ export async function signIn(req, res) {
   } catch (error) {
     return res.status(500).json({
       success: false,
-      message: "Something went wrong. Please try again later.",
+      message: error.message,
     });
   }
 }
@@ -80,8 +80,9 @@ export async function logout(req, res) {
       .status(200)
       .json({ success: true, message: "Logged out successfully" });
   } catch (error) {
-    return res
-      .status(500)
-      .json({ success: false, message: "Something went wrong" });
+    return res.status(500).json({
+      success: false,
+      message: error.message,
+    });
   }
 }
